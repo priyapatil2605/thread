@@ -18,7 +18,7 @@ const Product = require('../models/Product');
  */
 
 const REPLICATE_MODEL = 'cuuupid/idm-vton';
-const GEMINI_MODEL = 'gemini-3.1-flash-image';
+const GEMINI_MODEL = 'gemini-2.5-flash-image';
 const MAX_POLLS = 45; // ~90s ceiling for the Replicate path
 
 function categoryToGarmentType(category) {
