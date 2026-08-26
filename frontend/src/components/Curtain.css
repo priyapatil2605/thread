@@ -1,0 +1,65 @@
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  pointer-events: none;
+}
+
+.curtain-panel {
+  flex: 1;
+  height: 100%;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  transition: transform 1.15s cubic-bezier(0.83, 0, 0.17, 1);
+  position: relative;
+  overflow: hidden;
+}
+.curtain-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(200, 30, 74, 0.18), transparent 60%);
+}
+
+.curtain-panel.left {
+  justify-content: flex-end;
+  border-right: 1px solid rgba(237, 231, 218, 0.08);
+}
+.curtain-panel.right {
+  justify-content: flex-start;
+  border-left: 1px solid rgba(237, 231, 218, 0.08);
+}
+
+.curtain-mark {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(48px, 9vw, 140px);
+  font-weight: 600;
+  color: var(--bone);
+  letter-spacing: -0.02em;
+  padding: 0 6px;
+  opacity: 0.9;
+}
+
+.curtain-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  background: var(--thread);
+  transform: translateX(-50%);
+  opacity: 0.6;
+  transition: opacity 0.4s ease 0.8s;
+}
+
+.curtain.is-open .curtain-panel.left {
+  transform: translateX(-100%);
+}
+.curtain.is-open .curtain-panel.right {
+  transform: translateX(100%);
+}
+.curtain.is-open .curtain-line {
+  opacity: 0;
+}

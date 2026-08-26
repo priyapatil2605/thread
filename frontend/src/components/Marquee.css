@@ -1,0 +1,40 @@
+.marquee {
+  border-top: 1px solid rgba(237, 231, 218, 0.12);
+  border-bottom: 1px solid rgba(237, 231, 218, 0.12);
+  overflow: hidden;
+  background: var(--ink-2);
+  padding: 18px 0;
+}
+
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: scroll-left 26s linear infinite;
+  width: max-content;
+}
+
+.marquee-item {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(20px, 2.6vw, 34px);
+  color: var(--bone-dim);
+  padding: 0 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.marquee-dot {
+  color: var(--thread);
+  font-size: 10px;
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 700px) {
+  .marquee-track { animation-duration: 16s; }
+}
